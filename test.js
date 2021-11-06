@@ -1,42 +1,21 @@
-"use strict";
+const howMany = +prompt("How many films you see?");
 
-//alert("hello");
-//prompt();\
-//const result = confirm("Are you here?")
-//console.log(result);
-//const answer = +prompt("How old are you", "");
-//console.log(typeof(answer));
+const personalMovieDB = {
+    count: howMany,
+    movies: {},
+    actors: {},
+    genres: [],
+    private: false
+};
 
-//const answers = [];
-//answers[0] = prompt("How old are you", "");
-//answers[1] = prompt("How your name", "");
-//
-//console.log(typeof(answers));
+const a = prompt("Last movies which you see", ""),
+      b = +prompt("Please to grade film from 1 to 10"),
+      c = prompt("Last movies which you see", ""),
+      d = +prompt("Please to grade film from 1 to 10");
 
-//const category = "toys";
-//
-//console.log(`https://someurl.com/${category}/5`);
-//
-//const user = "alex";
-//
-//alert(`hello, ${user}`);
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-//console.log('arr' + " - object");
-//console.log(4 + "5"); // need console.log(4 + +" - object");
-//
-//let incr = 10,
-//    decr = 10;
-//
-////++incr;
-////--decr;
-//
-//console.log(++incr);
-//console.log(--decr);
-//
-//console.log((2 + 2) * 2 != 8);
-//
-//const isChecked = false,
-//      isClose = false;
-//console.log(isChecked || isClose);
+console.log(personalMovieDB);
 
 
