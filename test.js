@@ -1,22 +1,65 @@
-//const howMany = +prompt("How many films you see?");
-//
-//const personalMovieDB = {
-//    count: howMany,
-//    movies: {},
-//    actors: {},
-//    genres: [],
-//    private: false
-//};
-//
-//const a = prompt("Last movies which you see", ""),
-//      b = +prompt("Please to grade film from 1 to 10"),
-//      c = prompt("Last movies which you see", ""),
-//      d = +prompt("Please to grade film from 1 to 10");
-//
-//personalMovieDB.movies[a] = b;
-//personalMovieDB.movies[c] = d;
-//
-//console.log(personalMovieDB);
+let howMany;
+function start() {
+    howMany = +prompt("How many films you see?", "");
+
+    while (howMany == '' || howMany == null || isNaN(howMany)) {
+        howMany = +prompt("How many films you see?", "");
+    }
+}
+start();
+
+const personalMovieDB = {
+    count: howMany,
+    movies: {},
+    actors: {},
+    genres: [],
+    private: false
+};
+
+function rememberMyFilms() {
+    let count = 0;
+    do {
+        count++;
+        const a = prompt("Last movies which you see", ""),
+              b = +prompt("Please to grade film from 1 to 10", "");
+        
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('done');
+        } else {
+            console.log('error');
+            count--;
+        }
+    } while (count < 2);
+}
+rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+        alert("You see not many films");
+    } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+        alert("classical kinolover");
+    } else {
+        alert("error");
+    }
+}
+detectPersonalLevel();
+
+function showDB() {
+    if (personalMovieDB.private == false) {
+        console.log(personalMovieDB);
+    }
+}
+showDB();
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+       personalMovieDB.genres[i-1] = prompt(`Which moust genres you like under number ${i}?`);
+    } 
+}
+writeYourGenres();
+
+
 
 //if (0) {
 //    console.log('OK!');
@@ -68,3 +111,58 @@
 //    }
 //    console.log(i);
 //}
+
+//function declaration
+//function showFirstMsg(str, num) {
+//    console.log(str + " " + num);
+//}
+//showFirstMsg("hello world", 45);
+//
+//function calc (a, b) {
+//    return a + b;
+//}
+//console.log(calc (1, 12));
+//
+//function ret() {
+//    let num = 50;
+//    return num;
+//}
+//const another = ret();
+//console.log(another);
+//
+////function expression
+//const funcExpre = function () {
+//    console.log("hello");
+//};
+//funcExpre();
+//
+//// row function
+//const calculator = (a, b) => console.log(a + b);
+//calculator(2, 3);
+
+//const str = "test";
+//const arr = [1, 2, 4];
+//
+//console.log(str.toUpperCase());
+//console.log(str.toLowerCase());
+//console.log(str);
+//
+//let fruit = "Some fruit";
+//
+//console.log(fruit.indexOf("fruidt"));
+//
+//const logg = "hello world";
+//console.log(logg.slice(logg.indexOf("world"), logg.length));
+//
+//console.log(logg.substring(6, 11));
+//
+//console.log(logg.substr(6, 5));
+//
+//const num = 12.2;
+//
+//console.log(Math.round(num));
+//
+//const test = "12.2px";
+//console.log(parseInt(test));
+//console.log(parseFloat(test));
+
