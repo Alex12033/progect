@@ -1,63 +1,65 @@
-//let howMany;
-//function start() {
-//    howMany = +prompt("How many films you see?", "");
-//
-//    while (howMany == '' || howMany == null || isNaN(howMany)) {
-//        howMany = +prompt("How many films you see?", "");
-//    }
-//}
-//start();
-//
-//const personalMovieDB = {
-//    count: howMany,
-//    movies: {},
-//    actors: {},
-//    genres: [],
-//    private: false
-//};
-//
-//function rememberMyFilms() {
-//    let count = 0;
-//    do {
-//        count++;
-//        const a = prompt("Last movies which you see", ""),
-//              b = +prompt("Please to grade film from 1 to 10", "");
-//        
-//        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//            personalMovieDB.movies[a] = b;
-//            console.log('done');
-//        } else {
-//            console.log('error');
-//            count--;
-//        }
-//    } while (count < 2);
-//}
-//rememberMyFilms();
-//
-//function detectPersonalLevel() {
-//    if (personalMovieDB.count < 10) {
-//        alert("You see not many films");
-//    } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
-//        alert("classical kinolover");
-//    } else {
-//        alert("error");
-//    }
-//}
-//detectPersonalLevel();
-//
-//function showDB() {
-//    if (personalMovieDB.private == false) {
-//        console.log(personalMovieDB);
-//    }
-//}
-//showDB();
-//
-//function writeYourGenres() {
-//    for (let i = 1; i <= 3; i++) {
-//       personalMovieDB.genres[i-1] = prompt(`Which moust genres you like under number ${i}?`);
-//    } 
-//}
-//writeYourGenres();
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    private: true,
+    start: function() {
+        personalMovieDB.count = +prompt("How many films you see?", "");
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt("How many films you see?", "");
+        }
+    },
+    rememberMyFilms: function() {
+        let count = 0;
+        do {
+            count++;
+            const a = prompt("Last movies which you see", ""),
+                  b = +prompt("Please to grade film from 1 to 10", "");
+            
+            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+                personalMovieDB.movies[a] = b;
+                console.log('done');
+            } else {
+                console.log('error');
+                count--;
+            }
+        } while (count < 2);
+    },
+    detectPersonalLevel: function() {
+        if (personalMovieDB.count < 10) {
+            alert("You see not many films");
+        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+            alert("classical kinolover");
+        } else {
+            alert("you see a lot of films");
+        }
+    }, 
+    showDB: function(hiden) {
+        if (!hiden) {
+            console.log(personalMovieDB);
+        }
+    },
+    toggleVisibleMyDB: function() {
+        if (personalMovieDB.private) {
+            personalMovieDB.private = false;
+        } else {
+            personalMovieDB.private = true;
+        }
+    },
+    writeYourGenres: function() {
+        for (let i = 1; i <= 3; i++) {
+           personalMovieDB.genres[i-1] = prompt(`Which moust genres you like under number ${i}?`);
+        } 
+    },
+};
+
+personalMovieDB.start();
+personalMovieDB.rememberMyFilms();
+personalMovieDB.detectPersonalLevel();
+personalMovieDB. showDB();
+personalMovieDB.writeYourGenres();
+
 
 
 
@@ -230,7 +232,7 @@
 
 //console.log(Object.keys(options).length);
 
-const arr = [1, 2, 3, 4, 5, 6];
+//const arr = [1, 2, 3, 4, 5, 6];
 //arr[99] = 0;
 //console.log(arr.length);
 //arr.pop();
@@ -255,5 +257,92 @@ const arr = [1, 2, 3, 4, 5, 6];
 //arr.forEach(function(item, i, arr) {
 //    console.log(`${item}: ${i} inside array ${arr}`);
 //});
+
+
+//et a = 5,
+//   b = a;
+//
+// = b + 5;
+//console.log(b);
+//console.log(a);
+
+//const obj = {
+//    a: 5, 
+//    b: 1
+//};
+//
+//const copy = obj; //link object
+//
+//copy.a = 10;
+//
+//console.log(copy);
+//console.log(obj);
+
+//function copy(mainObj) {
+//    let objCopy = {};
+//
+//    let key;
+//    for(key in mainObj) {
+//        objCopy[key] = mainObj[key];
+//    }
+//    
+//    return objCopy;
+//}
+
+//const numbers = {
+//    a: 2,
+//    b: 3,
+//    c: {
+//        x: 7,
+//        y: 4
+//    }
+//};
+
+//const newNumbers = copy(numbers);
+//
+//newNumbers.a = 10;
+//
+//console.log(newNumbers);
+//console.log(numbers);
+
+//const add = {
+//    d: 17,
+//    i: 20
+//};
+//
+//const clone = Object.assign({}, add);
+//
+//clone.d = 20;
+//
+//console.log(add);
+//console.log(clone);
+
+//const oldArr = ['a', 'b', 'c'];
+//const newArr = oldArr.slice();
+//
+//newArr[1] = 'sdnvksdvkln';
+//console.log(newArr);
+//console.log(oldArr);
+
+//let str = "sum";
+//let strObj = new String(str);
+//
+//console.log(typeof(str));
+//console.log(typeof(strObj));
+
+//console.dir([1, 2, 3]);
+
+//const soldier = {
+//    health: 400,
+//    armor: 100,
+//    sayHello: function() {
+//        console.log("hello");
+//    }
+//};
+
+//const john = Object.create();
+
+//Object.setPrototypeOf(john, soldier);
+
 
 
