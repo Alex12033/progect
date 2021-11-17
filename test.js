@@ -1,65 +1,75 @@
-const personalMovieDB = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    private: true,
-    start: function() {
-        personalMovieDB.count = +prompt("How many films you see?", "");
-        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-            personalMovieDB.count = +prompt("How many films you see?", "");
-        }
-    },
-    rememberMyFilms: function() {
-        let count = 0;
-        do {
-            count++;
-            const a = prompt("Last movies which you see", ""),
-                  b = +prompt("Please to grade film from 1 to 10", "");
-            
-            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-                personalMovieDB.movies[a] = b;
-                console.log('done');
-            } else {
-                console.log('error');
-                count--;
-            }
-        } while (count < 2);
-    },
-    detectPersonalLevel: function() {
-        if (personalMovieDB.count < 10) {
-            alert("You see not many films");
-        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
-            alert("classical kinolover");
-        } else {
-            alert("you see a lot of films");
-        }
-    }, 
-    showDB: function(hiden) {
-        if (!hiden) {
-            console.log(personalMovieDB);
-        }
-    },
-    toggleVisibleMyDB: function() {
-        if (personalMovieDB.private) {
-            personalMovieDB.private = false;
-        } else {
-            personalMovieDB.private = true;
-        }
-    },
-    writeYourGenres: function() {
-        for (let i = 1; i <= 3; i++) {
-           personalMovieDB.genres[i-1] = prompt(`Which moust genres you like under number ${i}?`);
-        } 
-    },
-};
-
-personalMovieDB.start();
-personalMovieDB.rememberMyFilms();
-personalMovieDB.detectPersonalLevel();
-personalMovieDB. showDB();
-personalMovieDB.writeYourGenres();
-
+//const personalMovieDB = {
+//    count: 0,
+//    movies: {},
+//    actors: {},
+//    genres: [],
+//    private: false,
+//    start: function() {
+//        personalMovieDB.count = +prompt("How many films you see?", "");
+//        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+//            personalMovieDB.count = +prompt("How many films you see?", "");
+//        }
+//    },
+//    rememberMyFilms: function() {
+//        let count = 0;
+//        do {
+//            count++;
+//            const a = prompt("Last movies which you see", ""),
+//                  b = +prompt("Please to grade film from 1 to 10", "");
+//            
+//            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//                personalMovieDB.movies[a] = b;
+//                console.log('done');
+//            } else {
+//                console.log('error');
+//                count--;
+//            }
+//        } while (count < 2);
+//    },
+//    detectPersonalLevel: function() {
+//        if (personalMovieDB.count < 10) {
+//            alert("You see not many films");
+//        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+//            alert("classical kinolover");
+//        } else {
+//            alert("you see a lot of films");
+//        }
+//    }, 
+//    showDB: function(hiden) {
+//        if (!hiden) {
+//            console.log(personalMovieDB);
+//        }
+//    },
+//    toggleVisibleMyDB: function() {
+//        if (personalMovieDB.private) {
+//            personalMovieDB.private = false;
+//        } else {
+//            personalMovieDB.private = true;
+//        }
+//    },
+//    writeYourGenres: function() {
+//        for (let i = 1; i <= 3; i++) {
+//            let answerUser = prompt(`Which moust genres you like under number ? ${i}`);
+//            
+//            if (answerUser === null || answerUser === '') {
+//                console.log("You enter incorrect data");
+//                i--;
+//            } else {
+//                personalMovieDB.genres = answerUser.split(', ');
+//            }      
+//        } 
+//
+//        personalMovieDB.genres.forEach((item, i) => {
+//            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+//        });
+//    }
+//};
+//
+//personalMovieDB.start();
+//personalMovieDB.rememberMyFilms();
+//personalMovieDB.detectPersonalLevel();
+//personalMovieDB. showDB();
+//personalMovieDB.writeYourGenres();
 
 
 
@@ -344,5 +354,81 @@ personalMovieDB.writeYourGenres();
 
 //Object.setPrototypeOf(john, soldier);
 
+//function hello() {
+//    console.log("Hello world");
+//}
+//hello();
+//
+//function hi() {
+//    console.log("Say hi");
+//}
+//hi();
+//
+//const arr = [1, 14, 4, 30, 54],
+//      sorted = arr.sort(compareNum);
+//
+//function compareNum(a, b) { a = 14, b = 1
+//    return a - b;
+//}
+//
+//console.log(sorted);
 
+//to string
+//console.log(typeof(String(null)));
+//console.log(typeof(String(2)));
+//
+//console.log(typeof(5 + ""));
+//console.log(typeof(5 + null));
+//
+//const num = 5;
+//console.log("https://vk.com/catalog/" + num);
+//
+//const fontSize = 26 + 'px';
+
+// to number
+//console.log(typeof(Number('4')));
+//
+//console.log(typeof(+'5'));
+//
+//console.log(typeof(parseInt("15px", 10)));
+
+//let answer =  +prompt("Hello", "");
+
+// to boolean
+// 0 '' null undefined NaN
+
+//let switcher = null;
+//if (switcher) {
+//    console.log("working....");
+//}
+//
+//let switcher = 1;
+//if (switcher) {
+//    console.log("working...");
+//}
+//
+//console.log(typeof(Boolean('4')));
+//
+//console.log(typeof((!!"scscsc")));
+
+//console.log(typeof([] + false - null + true));
+
+//console.log(typeof([] + 1  + 2));
+
+///console.log("1"[0]);
+
+//console.log(2 && 1 && null && 0 && undefined);
+// && stop on false
+
+//console.log(!!(2 && 1) === (2 && 1));
+
+//let a = [1, 2],
+//    b = [1, 2];
+//console.log(a === b);
+
+//console.log(typeof(+"Infinity"));
+
+//console.log("Ежикss" > "яблоко");
+
+//console.log(0 || "" || 2  || undefined || true || false);
 
